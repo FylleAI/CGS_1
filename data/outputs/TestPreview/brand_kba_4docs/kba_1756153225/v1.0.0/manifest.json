@@ -1,0 +1,160 @@
+{
+  "manifest_version": "1.0.0",
+  "created_at": "2025-08-25T22:21:47.156348",
+  "export_info": {
+    "export_id": "kba_1756153225",
+    "output_directory": "data/outputs/TestPreview/brand_kba_4docs/kba_1756153225/v1.0.0",
+    "version": "v1.0.0",
+    "format_version": "1.0.0",
+    "exporter": "KBAExporter",
+    "export_timestamp": "2025-08-25T22:21:47.156351"
+  },
+  "workflow_info": {
+    "workflow_type": "kba_ingestion",
+    "workflow_mode": "brand_kba_4docs",
+    "workflow_id": "kba_1756153225",
+    "client": "TestPreview",
+    "custom_instructions": "Test preview functionality",
+    "output_format": "default",
+    "sources_count": 1,
+    "execution_timestamp": 1756153225.6864378
+  },
+  "content_info": {
+    "summary": "Generated 4 files:\n- company_profile_brand_voice.md: 726 words\n- production_guide.md: 549 words\n- quality_standards.md: 495 words\n- voice_examples.md: 604 words",
+    "total_word_count": 2374,
+    "file_count": 4,
+    "metadata": {
+      "workflow_mode": "brand_kba_4docs",
+      "source_count": 1,
+      "total_word_count": 898,
+      "languages": [
+        "en"
+      ],
+      "source_types": [
+        "md"
+      ],
+      "created_at": 1756153225.6864378,
+      "client": "TestPreview",
+      "workflow_id": "kba_1756153225",
+      "key_themes": [
+        "Brand",
+        "Data",
+        "Training",
+        "Experience",
+        "Customer",
+        "Analytics",
+        "Process",
+        "Marketing",
+        "Development",
+        "Design"
+      ],
+      "transformer": "brand_kba_4docs",
+      "output_files": [
+        "company_profile_brand_voice.md",
+        "production_guide.md",
+        "quality_standards.md",
+        "voice_examples.md"
+      ],
+      "ai_tokens_used": 21946,
+      "ai_cost": 0.6583800000000001,
+      "ai_provider": "openai",
+      "ai_model": "gpt-4o"
+    },
+    "transformer": "brand_kba_4docs",
+    "key_themes": [
+      "Brand",
+      "Data",
+      "Training",
+      "Experience",
+      "Customer",
+      "Analytics",
+      "Process",
+      "Marketing",
+      "Development",
+      "Design"
+    ]
+  },
+  "files": [
+    {
+      "filename": "company_profile_brand_voice.md",
+      "path": "data/outputs/TestPreview/brand_kba_4docs/kba_1756153225/v1.0.0/company_profile_brand_voice.md",
+      "size_bytes": 5578,
+      "word_count": 726,
+      "line_count": 84,
+      "format": "markdown",
+      "created_at": "2025-08-25T22:21:47.155415",
+      "modified_at": "2025-08-25T22:21:47.155415"
+    },
+    {
+      "filename": "production_guide.md",
+      "path": "data/outputs/TestPreview/brand_kba_4docs/kba_1756153225/v1.0.0/production_guide.md",
+      "size_bytes": 4136,
+      "word_count": 549,
+      "line_count": 45,
+      "format": "markdown",
+      "created_at": "2025-08-25T22:21:47.155770",
+      "modified_at": "2025-08-25T22:21:47.155770"
+    },
+    {
+      "filename": "quality_standards.md",
+      "path": "data/outputs/TestPreview/brand_kba_4docs/kba_1756153225/v1.0.0/quality_standards.md",
+      "size_bytes": 3532,
+      "word_count": 495,
+      "line_count": 85,
+      "format": "markdown",
+      "created_at": "2025-08-25T22:21:47.155977",
+      "modified_at": "2025-08-25T22:21:47.155977"
+    },
+    {
+      "filename": "voice_examples.md",
+      "path": "data/outputs/TestPreview/brand_kba_4docs/kba_1756153225/v1.0.0/voice_examples.md",
+      "size_bytes": 4417,
+      "word_count": 604,
+      "line_count": 113,
+      "format": "markdown",
+      "created_at": "2025-08-25T22:21:47.156201",
+      "modified_at": "2025-08-25T22:21:47.156201"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "index": 0,
+        "type": "md",
+        "origin": "test_real_ai_kba.md",
+        "filename": "test_real_ai_kba.md"
+      }
+    ],
+    "source_count": 1,
+    "source_types": [
+      "md"
+    ],
+    "processing_pipeline": [
+      "extraction",
+      "enrichment",
+      "transformation",
+      "assembly",
+      "export"
+    ]
+  },
+  "checksums": {
+    "company_profile_brand_voice.md": "43b257c5c39961ebecc65343a3d4fdb350f7962819a7627969000afe2451e360",
+    "production_guide.md": "151f06a5c8b24973cbdaae457e7a48b3dd8687fa222824ad464034957aff929c",
+    "quality_standards.md": "829ab3913398269f577f96ddca6453ee856287df13a4f8889fe6bf1711b4e0cc",
+    "voice_examples.md": "b192d4220dd8c6b132d0f51c34116773844cad5f9ddf7b047bb21e99c798f658"
+  },
+  "statistics": {
+    "total_files": 4,
+    "total_size_bytes": 17663,
+    "total_size_mb": 0.02,
+    "total_word_count": 2374,
+    "total_line_count": 327,
+    "average_file_size": 4416,
+    "average_word_count": 594,
+    "file_types": {
+      "markdown": 4
+    },
+    "largest_file": "company_profile_brand_voice.md",
+    "smallest_file": "quality_standards.md"
+  }
+}

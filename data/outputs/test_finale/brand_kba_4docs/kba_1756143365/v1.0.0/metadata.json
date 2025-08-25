@@ -1,0 +1,26 @@
+{
+  "workflow_mode": "brand_kba_4docs",
+  "source_count": 2,
+  "total_word_count": 177,
+  "languages": [
+    "en"
+  ],
+  "source_types": [
+    "md",
+    "txt"
+  ],
+  "created_at": 1756143365.994421,
+  "client": "test_finale",
+  "workflow_id": "kba_1756143365",
+  "key_themes": [
+    "Brand",
+    "Marketing"
+  ],
+  "transformer": "brand_kba_4docs",
+  "output_files": [
+    "company_profile_brand_voice.md",
+    "production_guide.md",
+    "quality_standards.md",
+    "voice_examples.md"
+  ]
+}

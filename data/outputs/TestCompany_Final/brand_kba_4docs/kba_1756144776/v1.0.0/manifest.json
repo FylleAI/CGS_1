@@ -1,0 +1,148 @@
+{
+  "manifest_version": "1.0.0",
+  "created_at": "2025-08-25T19:59:42.086778",
+  "export_info": {
+    "export_id": "kba_1756144776",
+    "output_directory": "data/outputs/TestCompany_Final/brand_kba_4docs/kba_1756144776/v1.0.0",
+    "version": "v1.0.0",
+    "format_version": "1.0.0",
+    "exporter": "KBAExporter",
+    "export_timestamp": "2025-08-25T19:59:42.086784"
+  },
+  "workflow_info": {
+    "workflow_type": "kba_ingestion",
+    "workflow_mode": "brand_kba_4docs",
+    "workflow_id": "kba_1756144776",
+    "client": "TestCompany_Final",
+    "custom_instructions": "Genera una knowledge base completa e professionale per il test finale del sistema KBA",
+    "output_format": "default",
+    "sources_count": 2,
+    "execution_timestamp": 1756144776.071826
+  },
+  "content_info": {
+    "summary": "Generated 4 files:\n- company_profile_brand_voice.md: 153 words\n- production_guide.md: 144 words\n- quality_standards.md: 116 words\n- voice_examples.md: 181 words",
+    "total_word_count": 594,
+    "file_count": 4,
+    "metadata": {
+      "workflow_mode": "brand_kba_4docs",
+      "source_count": 2,
+      "total_word_count": 397,
+      "languages": [
+        "en"
+      ],
+      "source_types": [
+        "txt",
+        "md"
+      ],
+      "created_at": 1756144776.071826,
+      "client": "TestCompany_Final",
+      "workflow_id": "kba_1756144776",
+      "key_themes": [
+        "Brand",
+        "Compliance"
+      ],
+      "transformer": "brand_kba_4docs",
+      "output_files": [
+        "company_profile_brand_voice.md",
+        "production_guide.md",
+        "quality_standards.md",
+        "voice_examples.md"
+      ]
+    },
+    "transformer": "brand_kba_4docs",
+    "key_themes": [
+      "Brand",
+      "Compliance"
+    ]
+  },
+  "files": [
+    {
+      "filename": "company_profile_brand_voice.md",
+      "path": "data/outputs/TestCompany_Final/brand_kba_4docs/kba_1756144776/v1.0.0/company_profile_brand_voice.md",
+      "size_bytes": 1092,
+      "word_count": 153,
+      "line_count": 39,
+      "format": "markdown",
+      "created_at": "2025-08-25T19:59:42.083575",
+      "modified_at": "2025-08-25T19:59:42.083575"
+    },
+    {
+      "filename": "production_guide.md",
+      "path": "data/outputs/TestCompany_Final/brand_kba_4docs/kba_1756144776/v1.0.0/production_guide.md",
+      "size_bytes": 1037,
+      "word_count": 144,
+      "line_count": 36,
+      "format": "markdown",
+      "created_at": "2025-08-25T19:59:42.084601",
+      "modified_at": "2025-08-25T19:59:42.084601"
+    },
+    {
+      "filename": "quality_standards.md",
+      "path": "data/outputs/TestCompany_Final/brand_kba_4docs/kba_1756144776/v1.0.0/quality_standards.md",
+      "size_bytes": 813,
+      "word_count": 116,
+      "line_count": 37,
+      "format": "markdown",
+      "created_at": "2025-08-25T19:59:42.085261",
+      "modified_at": "2025-08-25T19:59:42.085261"
+    },
+    {
+      "filename": "voice_examples.md",
+      "path": "data/outputs/TestCompany_Final/brand_kba_4docs/kba_1756144776/v1.0.0/voice_examples.md",
+      "size_bytes": 1250,
+      "word_count": 181,
+      "line_count": 47,
+      "format": "markdown",
+      "created_at": "2025-08-25T19:59:42.086453",
+      "modified_at": "2025-08-25T19:59:42.086453"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "index": 0,
+        "type": "md",
+        "origin": "test_kba_final.md",
+        "filename": "test_kba_final.md"
+      },
+      {
+        "index": 1,
+        "type": "txt",
+        "origin": "test_guidelines_final.txt",
+        "filename": "test_guidelines_final.txt"
+      }
+    ],
+    "source_count": 2,
+    "source_types": [
+      "txt",
+      "md"
+    ],
+    "processing_pipeline": [
+      "extraction",
+      "enrichment",
+      "transformation",
+      "assembly",
+      "export"
+    ]
+  },
+  "checksums": {
+    "company_profile_brand_voice.md": "8905a62cbed60e137fec5bb8b19091a931001009fd7e1f6354c8e225c36459c7",
+    "production_guide.md": "6ad41741250146fc81fdd0dbb63a704e1809c27c602008bb878b793e755f8db3",
+    "quality_standards.md": "6c5ef982d47d3623eb876ea722d5cd84e20d591bc932be424689c87bfc780d91",
+    "voice_examples.md": "a8dbe55616a9747cb51dabce91ab78ef00bbe3677a967f4c2977771119feb4c7"
+  },
+  "statistics": {
+    "total_files": 4,
+    "total_size_bytes": 4192,
+    "total_size_mb": 0.0,
+    "total_word_count": 594,
+    "total_line_count": 159,
+    "average_file_size": 1048,
+    "average_word_count": 148,
+    "file_types": {
+      "markdown": 4
+    },
+    "largest_file": "voice_examples.md",
+    "smallest_file": "quality_standards.md"
+  }
+}

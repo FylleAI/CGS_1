@@ -1,0 +1,37 @@
+{
+  "workflow_mode": "brand_kba_4docs",
+  "source_count": 1,
+  "total_word_count": 898,
+  "languages": [
+    "en"
+  ],
+  "source_types": [
+    "md"
+  ],
+  "created_at": 1756153225.6864378,
+  "client": "TestPreview",
+  "workflow_id": "kba_1756153225",
+  "key_themes": [
+    "Brand",
+    "Data",
+    "Training",
+    "Experience",
+    "Customer",
+    "Analytics",
+    "Process",
+    "Marketing",
+    "Development",
+    "Design"
+  ],
+  "transformer": "brand_kba_4docs",
+  "output_files": [
+    "company_profile_brand_voice.md",
+    "production_guide.md",
+    "quality_standards.md",
+    "voice_examples.md"
+  ],
+  "ai_tokens_used": 21946,
+  "ai_cost": 0.6583800000000001,
+  "ai_provider": "openai",
+  "ai_model": "gpt-4o"
+}

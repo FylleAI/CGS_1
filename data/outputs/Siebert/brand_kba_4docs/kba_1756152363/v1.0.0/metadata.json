@@ -1,0 +1,36 @@
+{
+  "workflow_mode": "brand_kba_4docs",
+  "source_count": 4,
+  "total_word_count": 6958,
+  "languages": [
+    "en"
+  ],
+  "source_types": [
+    "md"
+  ],
+  "created_at": 1756152363.990335,
+  "client": "Siebert",
+  "workflow_id": "kba_1756152363",
+  "key_themes": [
+    "Experience",
+    "Process",
+    "Quality",
+    "Data",
+    "Strategy",
+    "Technology",
+    "Development",
+    "Brand",
+    "Training"
+  ],
+  "transformer": "brand_kba_4docs",
+  "output_files": [
+    "company_profile_brand_voice.md",
+    "production_guide.md",
+    "quality_standards.md",
+    "voice_examples.md"
+  ],
+  "ai_tokens_used": 36932,
+  "ai_cost": 1.1079599999999998,
+  "ai_provider": "openai",
+  "ai_model": "gpt-4o"
+}

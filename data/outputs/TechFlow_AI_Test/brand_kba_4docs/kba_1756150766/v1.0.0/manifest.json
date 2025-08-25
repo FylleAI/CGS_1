@@ -1,0 +1,160 @@
+{
+  "manifest_version": "1.0.0",
+  "created_at": "2025-08-25T21:40:31.591853",
+  "export_info": {
+    "export_id": "kba_1756150766",
+    "output_directory": "data/outputs/TechFlow_AI_Test/brand_kba_4docs/kba_1756150766/v1.0.0",
+    "version": "v1.0.0",
+    "format_version": "1.0.0",
+    "exporter": "KBAExporter",
+    "export_timestamp": "2025-08-25T21:40:31.591856"
+  },
+  "workflow_info": {
+    "workflow_type": "kba_ingestion",
+    "workflow_mode": "brand_kba_4docs",
+    "workflow_id": "kba_1756150766",
+    "client": "TechFlow_AI_Test",
+    "custom_instructions": "Generate comprehensive brand knowledge base with real AI analysis. Focus on professional consulting tone and enterprise positioning.",
+    "output_format": "default",
+    "sources_count": 1,
+    "execution_timestamp": 1756150766.301853
+  },
+  "content_info": {
+    "summary": "Generated 4 files:\n- company_profile_brand_voice.md: 740 words\n- production_guide.md: 589 words\n- quality_standards.md: 508 words\n- voice_examples.md: 596 words",
+    "total_word_count": 2433,
+    "file_count": 4,
+    "metadata": {
+      "workflow_mode": "brand_kba_4docs",
+      "source_count": 1,
+      "total_word_count": 898,
+      "languages": [
+        "en"
+      ],
+      "source_types": [
+        "md"
+      ],
+      "created_at": 1756150766.301853,
+      "client": "TechFlow_AI_Test",
+      "workflow_id": "kba_1756150766",
+      "key_themes": [
+        "Analytics",
+        "Customer",
+        "Training",
+        "Experience",
+        "Security",
+        "Data",
+        "Marketing",
+        "Development",
+        "Strategy",
+        "Brand"
+      ],
+      "transformer": "brand_kba_4docs",
+      "output_files": [
+        "company_profile_brand_voice.md",
+        "production_guide.md",
+        "quality_standards.md",
+        "voice_examples.md"
+      ],
+      "ai_tokens_used": 12293,
+      "ai_cost": 0.36879,
+      "ai_provider": "openai",
+      "ai_model": "gpt-4o"
+    },
+    "transformer": "brand_kba_4docs",
+    "key_themes": [
+      "Analytics",
+      "Customer",
+      "Training",
+      "Experience",
+      "Security",
+      "Data",
+      "Marketing",
+      "Development",
+      "Strategy",
+      "Brand"
+    ]
+  },
+  "files": [
+    {
+      "filename": "company_profile_brand_voice.md",
+      "path": "data/outputs/TechFlow_AI_Test/brand_kba_4docs/kba_1756150766/v1.0.0/company_profile_brand_voice.md",
+      "size_bytes": 5744,
+      "word_count": 740,
+      "line_count": 114,
+      "format": "markdown",
+      "created_at": "2025-08-25T21:40:31.590674",
+      "modified_at": "2025-08-25T21:40:31.590674"
+    },
+    {
+      "filename": "production_guide.md",
+      "path": "data/outputs/TechFlow_AI_Test/brand_kba_4docs/kba_1756150766/v1.0.0/production_guide.md",
+      "size_bytes": 4460,
+      "word_count": 589,
+      "line_count": 79,
+      "format": "markdown",
+      "created_at": "2025-08-25T21:40:31.591136",
+      "modified_at": "2025-08-25T21:40:31.591136"
+    },
+    {
+      "filename": "quality_standards.md",
+      "path": "data/outputs/TechFlow_AI_Test/brand_kba_4docs/kba_1756150766/v1.0.0/quality_standards.md",
+      "size_bytes": 3742,
+      "word_count": 508,
+      "line_count": 85,
+      "format": "markdown",
+      "created_at": "2025-08-25T21:40:31.591374",
+      "modified_at": "2025-08-25T21:40:31.591374"
+    },
+    {
+      "filename": "voice_examples.md",
+      "path": "data/outputs/TechFlow_AI_Test/brand_kba_4docs/kba_1756150766/v1.0.0/voice_examples.md",
+      "size_bytes": 4409,
+      "word_count": 596,
+      "line_count": 108,
+      "format": "markdown",
+      "created_at": "2025-08-25T21:40:31.591707",
+      "modified_at": "2025-08-25T21:40:31.591707"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "index": 0,
+        "type": "md",
+        "origin": "test_real_ai_kba.md",
+        "filename": "test_real_ai_kba.md"
+      }
+    ],
+    "source_count": 1,
+    "source_types": [
+      "md"
+    ],
+    "processing_pipeline": [
+      "extraction",
+      "enrichment",
+      "transformation",
+      "assembly",
+      "export"
+    ]
+  },
+  "checksums": {
+    "company_profile_brand_voice.md": "b14938500df4351dfb3e668e2480bb34e759fe3580e5c24e4cfeb341161a7029",
+    "production_guide.md": "c1289c8868b878227b0e9758e832ac71aa487d52e5a382b766ce9654fae8a50b",
+    "quality_standards.md": "0d4efa88867ed2b32e485291c651acb00f9deb837d65721ddba782d339bf2f7f",
+    "voice_examples.md": "f16709e6ed1c0135a98e1e9ab8f9d6c9554b3932bfad970f5168ec81c756cf89"
+  },
+  "statistics": {
+    "total_files": 4,
+    "total_size_bytes": 18355,
+    "total_size_mb": 0.02,
+    "total_word_count": 2433,
+    "total_line_count": 386,
+    "average_file_size": 4589,
+    "average_word_count": 608,
+    "file_types": {
+      "markdown": 4
+    },
+    "largest_file": "company_profile_brand_voice.md",
+    "smallest_file": "quality_standards.md"
+  }
+}

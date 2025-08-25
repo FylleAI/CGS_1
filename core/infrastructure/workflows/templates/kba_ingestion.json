@@ -1,0 +1,136 @@
+{
+  "workflow_info": {
+    "name": "kba_ingestion",
+    "version": "1.0.0",
+    "description": "Knowledge Base Ingestion Pipeline",
+    "category": "data_processing",
+    "estimated_duration": "2-10 minutes"
+  },
+  "validation": {
+    "required_inputs": ["client", "sources", "workflow_mode"],
+    "optional_inputs": ["custom_instructions", "output_format"],
+    "output_schema": "kba_output_v1.json"
+  },
+  "variables": [
+    {
+      "name": "client",
+      "type": "string",
+      "required": true,
+      "description": "Client name for output organization"
+    },
+    {
+      "name": "sources",
+      "type": "array",
+      "required": true,
+      "description": "Array of source objects with type and content/url"
+    },
+    {
+      "name": "workflow_mode",
+      "type": "string",
+      "required": true,
+      "description": "KBA workflow mode (e.g., brand_kba_4docs, faq_kba)"
+    },
+    {
+      "name": "custom_instructions",
+      "type": "string",
+      "required": false,
+      "description": "Additional instructions for processing"
+    },
+    {
+      "name": "output_format",
+      "type": "string",
+      "required": false,
+      "default": "default",
+      "description": "Output structure format (default, rag_compatible)"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task1_extract",
+      "name": "Source Extraction & Normalization", 
+      "agent": "extractor",
+      "description_template": "Extract and normalize content from {sources_count} sources for {client}",
+      "timeout": 300,
+      "retry_count": 2,
+      "dependencies": [],
+      "tools": ["pdf_parser", "url_parser", "md_parser", "text_parser", "docx_parser"]
+    },
+    {
+      "id": "task2_enrich", 
+      "name": "Content Enrichment & Cleaning",
+      "agent": "enricher",
+      "description_template": "Clean, merge and enrich extracted content for {workflow_mode}",
+      "timeout": 180,
+      "retry_count": 1,
+      "dependencies": ["task1_extract"],
+      "tools": ["content_cleaner", "duplicate_detector", "content_merger"]
+    },
+    {
+      "id": "task3_transform",
+      "name": "Content Transformation",
+      "agent": "transformer", 
+      "description_template": "Apply {workflow_mode} specific transformations to create knowledge base structure",
+      "timeout": 600,
+      "retry_count": 2,
+      "dependencies": ["task2_enrich"],
+      "tools": ["brand_transformer", "faq_transformer", "doc_transformer"]
+    },
+    {
+      "id": "task4_assemble",
+      "name": "File Assembly & Formatting",
+      "agent": "assembler",
+      "description_template": "Prepare final files according to {output_format} specification", 
+      "timeout": 120,
+      "retry_count": 1,
+      "dependencies": ["task3_transform"],
+      "tools": ["markdown_formatter", "json_formatter", "file_assembler"]
+    },
+    {
+      "id": "task5_export",
+      "name": "Export & Manifest Generation",
+      "agent": "exporter",
+      "description_template": "Save files to disk and create manifest for {client}",
+      "timeout": 60,
+      "retry_count": 2, 
+      "dependencies": ["task4_assemble"],
+      "tools": ["file_manager", "manifest_generator", "version_manager"]
+    }
+  ],
+  "error_handling": {
+    "strategy": "graceful_degradation",
+    "critical_tasks": ["task1_extract", "task5_export"],
+    "fallback_outputs": ["error_report.md", "partial_results.json"]
+  },
+  "extensibility": {
+    "plugin_hooks": [
+      "pre_extraction", "post_extraction",
+      "pre_transformation", "post_transformation",
+      "pre_export", "post_export"
+    ],
+    "future_tasks": {
+      "task6_visualize": {
+        "enabled": false,
+        "description": "Generate visualizations and dashboards",
+        "agent": "visualizer",
+        "dependencies": ["task5_export"]
+      },
+      "task7_segment": {
+        "enabled": false,
+        "description": "Create content segments and cards",
+        "agent": "segmenter",
+        "dependencies": ["task5_export"]
+      },
+      "task8_setup_listening": {
+        "enabled": false,
+        "description": "Configure monitoring and auto-updates",
+        "agent": "listener",
+        "dependencies": ["task5_export"]
+      }
+    },
+    "output_extensions": {
+      "visualizations": ["dashboard.html", "cards.json", "graphs.json"],
+      "segments": ["topic_segments.json", "audience_segments.json"],
+      "monitoring": ["monitors.json", "schedules.json"]
+    }
+  }
+}

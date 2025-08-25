@@ -1,0 +1,176 @@
+{
+  "manifest_version": "1.0.0",
+  "created_at": "2025-08-25T22:21:58.472139",
+  "export_info": {
+    "export_id": "kba_1756153247",
+    "output_directory": "data/outputs/Siebert/brand_kba_4docs/kba_1756153247/v1.0.0",
+    "version": "v1.0.0",
+    "format_version": "1.0.0",
+    "exporter": "KBAExporter",
+    "export_timestamp": "2025-08-25T22:21:58.472142"
+  },
+  "workflow_info": {
+    "workflow_type": "kba_ingestion",
+    "workflow_mode": "brand_kba_4docs",
+    "workflow_id": "kba_1756153247",
+    "client": "Siebert",
+    "custom_instructions": "",
+    "output_format": "default",
+    "sources_count": 4,
+    "execution_timestamp": 1756153247.534473
+  },
+  "content_info": {
+    "summary": "Generated 4 files:\n- company_profile_brand_voice.md: 685 words\n- production_guide.md: 652 words\n- quality_standards.md: 501 words\n- voice_examples.md: 711 words",
+    "total_word_count": 2549,
+    "file_count": 4,
+    "metadata": {
+      "workflow_mode": "brand_kba_4docs",
+      "source_count": 4,
+      "total_word_count": 6958,
+      "languages": [
+        "en"
+      ],
+      "source_types": [
+        "md"
+      ],
+      "created_at": 1756153247.534473,
+      "client": "Siebert",
+      "workflow_id": "kba_1756153247",
+      "key_themes": [
+        "Quality",
+        "Brand",
+        "Data",
+        "Training",
+        "Experience",
+        "Process",
+        "Development",
+        "Technology",
+        "Strategy"
+      ],
+      "transformer": "brand_kba_4docs",
+      "output_files": [
+        "company_profile_brand_voice.md",
+        "production_guide.md",
+        "quality_standards.md",
+        "voice_examples.md"
+      ],
+      "ai_tokens_used": 24646,
+      "ai_cost": 0.73938,
+      "ai_provider": "openai",
+      "ai_model": "gpt-4o"
+    },
+    "transformer": "brand_kba_4docs",
+    "key_themes": [
+      "Quality",
+      "Brand",
+      "Data",
+      "Training",
+      "Experience",
+      "Process",
+      "Development",
+      "Technology",
+      "Strategy"
+    ]
+  },
+  "files": [
+    {
+      "filename": "company_profile_brand_voice.md",
+      "path": "data/outputs/Siebert/brand_kba_4docs/kba_1756153247/v1.0.0/company_profile_brand_voice.md",
+      "size_bytes": 5567,
+      "word_count": 685,
+      "line_count": 80,
+      "format": "markdown",
+      "created_at": "2025-08-25T22:21:58.470984",
+      "modified_at": "2025-08-25T22:21:58.470984"
+    },
+    {
+      "filename": "production_guide.md",
+      "path": "data/outputs/Siebert/brand_kba_4docs/kba_1756153247/v1.0.0/production_guide.md",
+      "size_bytes": 4707,
+      "word_count": 652,
+      "line_count": 96,
+      "format": "markdown",
+      "created_at": "2025-08-25T22:21:58.471295",
+      "modified_at": "2025-08-25T22:21:58.471295"
+    },
+    {
+      "filename": "quality_standards.md",
+      "path": "data/outputs/Siebert/brand_kba_4docs/kba_1756153247/v1.0.0/quality_standards.md",
+      "size_bytes": 3593,
+      "word_count": 501,
+      "line_count": 93,
+      "format": "markdown",
+      "created_at": "2025-08-25T22:21:58.471482",
+      "modified_at": "2025-08-25T22:21:58.471482"
+    },
+    {
+      "filename": "voice_examples.md",
+      "path": "data/outputs/Siebert/brand_kba_4docs/kba_1756153247/v1.0.0/voice_examples.md",
+      "size_bytes": 4998,
+      "word_count": 711,
+      "line_count": 96,
+      "format": "markdown",
+      "created_at": "2025-08-25T22:21:58.471742",
+      "modified_at": "2025-08-25T22:21:58.471742"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "index": 0,
+        "type": "md",
+        "origin": "01_company_profile_brand_voice copy.md",
+        "filename": "01_company_profile_brand_voice copy.md"
+      },
+      {
+        "index": 1,
+        "type": "md",
+        "origin": "02_newsletter_production_guide copy.md",
+        "filename": "02_newsletter_production_guide copy.md"
+      },
+      {
+        "index": 2,
+        "type": "md",
+        "origin": "03_content_guidelines_quality copy.md",
+        "filename": "03_content_guidelines_quality copy.md"
+      },
+      {
+        "index": 3,
+        "type": "md",
+        "origin": "04_voice_examples_cultural_context copy.md",
+        "filename": "04_voice_examples_cultural_context copy.md"
+      }
+    ],
+    "source_count": 4,
+    "source_types": [
+      "md"
+    ],
+    "processing_pipeline": [
+      "extraction",
+      "enrichment",
+      "transformation",
+      "assembly",
+      "export"
+    ]
+  },
+  "checksums": {
+    "company_profile_brand_voice.md": "16bb745e3acfc9a30b9486cb17ecf7f8ef1511b08e5b590e1cd5364f50de398f",
+    "production_guide.md": "05a6fc4b83b6ed7aa271db3ecdf0ab38fe68e30768d42d8605974dae581214d0",
+    "quality_standards.md": "6f711e30d92d3916c7208cc5f69f3885db8d0b1005151722ea1e28a0236649c3",
+    "voice_examples.md": "f81a9f74e1569f1b8bf81d983a337407f262d40acacf8ccbf1bc7a35aac4c4ad"
+  },
+  "statistics": {
+    "total_files": 4,
+    "total_size_bytes": 18865,
+    "total_size_mb": 0.02,
+    "total_word_count": 2549,
+    "total_line_count": 365,
+    "average_file_size": 4716,
+    "average_word_count": 637,
+    "file_types": {
+      "markdown": 4
+    },
+    "largest_file": "company_profile_brand_voice.md",
+    "smallest_file": "quality_standards.md"
+  }
+}
