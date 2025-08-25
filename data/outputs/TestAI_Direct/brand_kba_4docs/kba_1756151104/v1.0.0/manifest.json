@@ -1,0 +1,160 @@
+{
+  "manifest_version": "1.0.0",
+  "created_at": "2025-08-25T21:46:11.675364",
+  "export_info": {
+    "export_id": "kba_1756151104",
+    "output_directory": "data/outputs/TestAI_Direct/brand_kba_4docs/kba_1756151104/v1.0.0",
+    "version": "v1.0.0",
+    "format_version": "1.0.0",
+    "exporter": "KBAExporter",
+    "export_timestamp": "2025-08-25T21:46:11.675371"
+  },
+  "workflow_info": {
+    "workflow_type": "kba_ingestion",
+    "workflow_mode": "brand_kba_4docs",
+    "workflow_id": "kba_1756151104",
+    "client": "TestAI_Direct",
+    "custom_instructions": "Test real AI integration with comprehensive analysis",
+    "output_format": "default",
+    "sources_count": 1,
+    "execution_timestamp": 1756151104.299711
+  },
+  "content_info": {
+    "summary": "Generated 4 files:\n- company_profile_brand_voice.md: 710 words\n- production_guide.md: 611 words\n- quality_standards.md: 463 words\n- voice_examples.md: 623 words",
+    "total_word_count": 2407,
+    "file_count": 4,
+    "metadata": {
+      "workflow_mode": "brand_kba_4docs",
+      "source_count": 1,
+      "total_word_count": 898,
+      "languages": [
+        "en"
+      ],
+      "source_types": [
+        "md"
+      ],
+      "created_at": 1756151104.299711,
+      "client": "TestAI_Direct",
+      "workflow_id": "kba_1756151104",
+      "key_themes": [
+        "Experience",
+        "Process",
+        "Analytics",
+        "Data",
+        "Strategy",
+        "Design",
+        "Marketing",
+        "Technology",
+        "Security",
+        "Development"
+      ],
+      "transformer": "brand_kba_4docs",
+      "output_files": [
+        "company_profile_brand_voice.md",
+        "production_guide.md",
+        "quality_standards.md",
+        "voice_examples.md"
+      ],
+      "ai_tokens_used": 24591,
+      "ai_cost": 0.73773,
+      "ai_provider": "openai",
+      "ai_model": "gpt-4o"
+    },
+    "transformer": "brand_kba_4docs",
+    "key_themes": [
+      "Experience",
+      "Process",
+      "Analytics",
+      "Data",
+      "Strategy",
+      "Design",
+      "Marketing",
+      "Technology",
+      "Security",
+      "Development"
+    ]
+  },
+  "files": [
+    {
+      "filename": "company_profile_brand_voice.md",
+      "path": "data/outputs/TestAI_Direct/brand_kba_4docs/kba_1756151104/v1.0.0/company_profile_brand_voice.md",
+      "size_bytes": 5497,
+      "word_count": 710,
+      "line_count": 106,
+      "format": "markdown",
+      "created_at": "2025-08-25T21:46:11.670825",
+      "modified_at": "2025-08-25T21:46:11.670825"
+    },
+    {
+      "filename": "production_guide.md",
+      "path": "data/outputs/TestAI_Direct/brand_kba_4docs/kba_1756151104/v1.0.0/production_guide.md",
+      "size_bytes": 4458,
+      "word_count": 611,
+      "line_count": 91,
+      "format": "markdown",
+      "created_at": "2025-08-25T21:46:11.672197",
+      "modified_at": "2025-08-25T21:46:11.672197"
+    },
+    {
+      "filename": "quality_standards.md",
+      "path": "data/outputs/TestAI_Direct/brand_kba_4docs/kba_1756151104/v1.0.0/quality_standards.md",
+      "size_bytes": 3358,
+      "word_count": 463,
+      "line_count": 90,
+      "format": "markdown",
+      "created_at": "2025-08-25T21:46:11.672766",
+      "modified_at": "2025-08-25T21:46:11.672766"
+    },
+    {
+      "filename": "voice_examples.md",
+      "path": "data/outputs/TestAI_Direct/brand_kba_4docs/kba_1756151104/v1.0.0/voice_examples.md",
+      "size_bytes": 4356,
+      "word_count": 623,
+      "line_count": 90,
+      "format": "markdown",
+      "created_at": "2025-08-25T21:46:11.673259",
+      "modified_at": "2025-08-25T21:46:11.673259"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "index": 0,
+        "type": "md",
+        "origin": "test_real_ai_kba.md",
+        "filename": "test_real_ai_kba.md"
+      }
+    ],
+    "source_count": 1,
+    "source_types": [
+      "md"
+    ],
+    "processing_pipeline": [
+      "extraction",
+      "enrichment",
+      "transformation",
+      "assembly",
+      "export"
+    ]
+  },
+  "checksums": {
+    "company_profile_brand_voice.md": "f385328ef75551363f1c92b5de75010aaa67fdc32db2d4d36c6129592c09d2a2",
+    "production_guide.md": "f1d3891e92c0dbba89f4653341f01bac38de21a4df935fd9662170c97d541d29",
+    "quality_standards.md": "8ad13568cedb23323ca3e3de40ce78a1f55e5558844910203150b1d70768d349",
+    "voice_examples.md": "7d164cb05d941856601009099ec3e0aa33e2a7bbb3ad07c5b8cfd1b144f0b6f1"
+  },
+  "statistics": {
+    "total_files": 4,
+    "total_size_bytes": 17669,
+    "total_size_mb": 0.02,
+    "total_word_count": 2407,
+    "total_line_count": 377,
+    "average_file_size": 4417,
+    "average_word_count": 602,
+    "file_types": {
+      "markdown": 4
+    },
+    "largest_file": "company_profile_brand_voice.md",
+    "smallest_file": "quality_standards.md"
+  }
+}

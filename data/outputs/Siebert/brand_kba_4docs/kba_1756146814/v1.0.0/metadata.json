@@ -1,0 +1,32 @@
+{
+  "workflow_mode": "brand_kba_4docs",
+  "source_count": 4,
+  "total_word_count": 6958,
+  "languages": [
+    "en"
+  ],
+  "source_types": [
+    "md"
+  ],
+  "created_at": 1756146814.307795,
+  "client": "Siebert",
+  "workflow_id": "kba_1756146814",
+  "key_themes": [
+    "Development",
+    "Data",
+    "Process",
+    "Technology",
+    "Brand",
+    "Training",
+    "Quality",
+    "Strategy",
+    "Experience"
+  ],
+  "transformer": "brand_kba_4docs",
+  "output_files": [
+    "company_profile_brand_voice.md",
+    "production_guide.md",
+    "quality_standards.md",
+    "voice_examples.md"
+  ]
+}

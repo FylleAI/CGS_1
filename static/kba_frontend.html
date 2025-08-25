@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBA - Knowledge Base Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .form-container {
+            padding: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+        
+        .file-upload {
+            border: 2px dashed #4facfe;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            background: #f8f9ff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-upload:hover {
+            background: #f0f4ff;
+            border-color: #2196F3;
+        }
+        
+        .file-upload.dragover {
+            background: #e3f2fd;
+            border-color: #1976D2;
+        }
+        
+        .workflow-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .workflow-card {
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .workflow-card:hover {
+            border-color: #4facfe;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .workflow-card.selected {
+            border-color: #4facfe;
+            background: #f8f9ff;
+        }
+        
+        .workflow-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .workflow-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .workflow-card .meta {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4facfe;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .result {
+            display: none;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .result.success {
+            border-left: 4px solid #28a745;
+        }
+        
+        .result.error {
+            border-left: 4px solid #dc3545;
+            background: #fff5f5;
+        }
+        
+        .file-list {
+            margin-top: 15px;
+        }
+        
+        .file-item {
+            background: white;
+            border: 1px solid #e1e5e9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .preview-btn {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .preview-btn:hover {
+            background: #138496;
+        }
+
+        .download-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .download-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 KBA</h1>
+            <p>Knowledge Base Assistant - Trasforma i tuoi documenti in knowledge base strutturate</p>
+        </div>
+        
+        <div class="form-container">
+            <form id="kbaForm">
+                <div class="form-group">
+                    <label for="client">Nome Cliente/Azienda:</label>
+                    <input type="text" id="client" name="client" required placeholder="es. mia_azienda">
+                </div>
+                
+                <div class="form-group">
+                    <label>Seleziona Tipo di Workflow:</label>
+                    <div class="workflow-cards" id="workflowCards">
+                        <!-- Caricato dinamicamente -->
+                    </div>
+                    <input type="hidden" id="selectedWorkflow" name="workflow_mode" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="provider">Provider AI:</label>
+                    <select id="provider" name="provider" required>
+                        <option value="openai">OpenAI</option>
+                        <option value="anthropic">Anthropic</option>
+                        <option value="google">Google</option>
+                        <option value="azure">Azure OpenAI</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="model">Modello:</label>
+                    <select id="model" name="model" required>
+                        <option value="gpt-4o">GPT-4o (Raccomandato)</option>
+                        <option value="gpt-4o-mini">GPT-4o Mini</option>
+                        <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                        <option value="claude-3-5-sonnet-20241022">Claude 3.5 Sonnet</option>
+                        <option value="claude-3-haiku-20240307">Claude 3 Haiku</option>
+                        <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="temperature">Creatività (Temperature):</label>
+                    <input type="range" id="temperature" name="temperature" min="0" max="1" step="0.1" value="0.7">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666;">
+                        <span>Preciso (0.0)</span>
+                        <span id="temperatureValue">0.7</span>
+                        <span>Creativo (1.0)</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="customInstructions">Istruzioni Personalizzate (opzionale):</label>
+                    <textarea id="customInstructions" name="custom_instructions" rows="3"
+                              placeholder="es. Concentrati su linee guida per il brand..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Carica i tuoi file:</label>
+                    <div class="file-upload" id="fileUpload">
+                        <div>
+                            📁 Trascina i file qui o clicca per selezionare
+                            <br><small>Supportati: PDF, MD, TXT, DOCX (max 50MB per file)</small>
+                        </div>
+                        <input type="file" id="files" name="files" multiple accept=".pdf,.md,.txt,.docx" style="display: none;">
+                    </div>
+                    <div id="fileList" class="file-list"></div>
+                </div>
+                
+                <button type="submit" class="btn" id="submitBtn">
+                    🚀 Genera Knowledge Base
+                </button>
+            </form>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Elaborazione in corso... Questo può richiedere alcuni minuti.</p>
+            </div>
+            
+            <div class="result" id="result">
+                <!-- Risultati mostrati qui -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api/v1/kba';
+        let selectedFiles = [];
+        let availableModes = {};
+
+        // Carica i workflow disponibili
+        async function loadWorkflowModes() {
+            try {
+                const response = await fetch(`${API_BASE}/modes`);
+                const data = await response.json();
+                availableModes = data.mode_details;
+                renderWorkflowCards(data.available_modes, data.mode_details);
+            } catch (error) {
+                console.error('Errore caricamento workflow:', error);
+            }
+        }
+
+        // Renderizza le card dei workflow
+        function renderWorkflowCards(modes, details) {
+            const container = document.getElementById('workflowCards');
+            container.innerHTML = '';
+            
+            modes.forEach(mode => {
+                const detail = details[mode];
+                const card = document.createElement('div');
+                card.className = 'workflow-card';
+                card.dataset.mode = mode;
+                card.innerHTML = `
+                    <h3>${detail.description}</h3>
+                    <p>${getWorkflowDescription(mode)}</p>
+                    <div class="meta">
+                        ⏱️ ${detail.estimated_time} | 
+                        📄 ${detail.output_count} file | 
+                        📥 ${detail.required_sources.min}-${detail.required_sources.max} sorgenti
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => selectWorkflow(mode, card));
+                container.appendChild(card);
+            });
+        }
+
+        // Descrizioni dei workflow
+        function getWorkflowDescription(mode) {
+            const descriptions = {
+                'brand_kba_4docs': 'Crea una knowledge base completa del brand con profilo aziendale, linee guida di produzione, standard di qualità ed esempi.',
+                'faq_kba': 'Genera FAQ strutturate in formato markdown e JSON dai tuoi documenti di supporto.',
+                'documentation_kba': 'Organizza documentazione tecnica in overview, guida utente, riferimenti API e troubleshooting.',
+                'training_kba': 'Struttura materiali di formazione in overview, moduli, esercizi e criteri di valutazione.'
+            };
+            return descriptions[mode] || 'Workflow di trasformazione documenti.';
+        }
+
+        // Seleziona workflow
+        function selectWorkflow(mode, cardElement) {
+            document.querySelectorAll('.workflow-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            cardElement.classList.add('selected');
+            document.getElementById('selectedWorkflow').value = mode;
+        }
+
+        // Gestione selezione modelli
+        const providerSelect = document.getElementById('provider');
+        const modelSelect = document.getElementById('model');
+        const temperatureSlider = document.getElementById('temperature');
+        const temperatureValue = document.getElementById('temperatureValue');
+
+        // Modelli disponibili per provider
+        const modelsByProvider = {
+            'openai': [
+                { value: 'gpt-4o', text: 'GPT-4o (Raccomandato)' },
+                { value: 'gpt-4o-mini', text: 'GPT-4o Mini' },
+                { value: 'gpt-4-turbo', text: 'GPT-4 Turbo' },
+                { value: 'gpt-3.5-turbo', text: 'GPT-3.5 Turbo' }
+            ],
+            'anthropic': [
+                { value: 'claude-3-5-sonnet-20241022', text: 'Claude 3.5 Sonnet' },
+                { value: 'claude-3-opus-20240229', text: 'Claude 3 Opus' },
+                { value: 'claude-3-haiku-20240307', text: 'Claude 3 Haiku' }
+            ],
+            'google': [
+                { value: 'gemini-1.5-pro', text: 'Gemini 1.5 Pro' },
+                { value: 'gemini-1.5-flash', text: 'Gemini 1.5 Flash' },
+                { value: 'gemini-pro', text: 'Gemini Pro' }
+            ],
+            'azure': [
+                { value: 'gpt-4o', text: 'Azure GPT-4o' },
+                { value: 'gpt-4-turbo', text: 'Azure GPT-4 Turbo' },
+                { value: 'gpt-35-turbo', text: 'Azure GPT-3.5 Turbo' }
+            ]
+        };
+
+        // Aggiorna modelli quando cambia provider
+        providerSelect.addEventListener('change', function() {
+            const provider = this.value;
+            const models = modelsByProvider[provider] || [];
+
+            modelSelect.innerHTML = '';
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model.value;
+                option.textContent = model.text;
+                modelSelect.appendChild(option);
+            });
+        });
+
+        // Aggiorna valore temperature
+        temperatureSlider.addEventListener('input', function() {
+            temperatureValue.textContent = this.value;
+        });
+
+        // Gestione file upload
+        const fileUpload = document.getElementById('fileUpload');
+        const fileInput = document.getElementById('files');
+        const fileList = document.getElementById('fileList');
+
+        fileUpload.addEventListener('click', () => fileInput.click());
+        fileUpload.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUpload.classList.add('dragover');
+        });
+        fileUpload.addEventListener('dragleave', () => {
+            fileUpload.classList.remove('dragover');
+        });
+        fileUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUpload.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            selectedFiles = Array.from(files);
+            renderFileList();
+        }
+
+        function renderFileList() {
+            fileList.innerHTML = '';
+            selectedFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <span>📄 ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+                    <button type="button" onclick="removeFile(${index})" style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">✕</button>
+                `;
+                fileList.appendChild(fileItem);
+            });
+        }
+
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            renderFileList();
+        }
+
+        // Gestione form submit
+        document.getElementById('kbaForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('client', document.getElementById('client').value);
+            formData.append('workflow_mode', document.getElementById('selectedWorkflow').value);
+            formData.append('provider', document.getElementById('provider').value);
+            formData.append('model', document.getElementById('model').value);
+            formData.append('temperature', document.getElementById('temperature').value);
+            formData.append('custom_instructions', document.getElementById('customInstructions').value);
+
+            selectedFiles.forEach(file => {
+                formData.append('files', file);
+            });
+
+            // Mostra loading
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
+
+            try {
+                const response = await fetch(`${API_BASE}/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showResult(result, 'success');
+                } else {
+                    showResult(result, 'error');
+                }
+            } catch (error) {
+                showResult({ message: 'Errore di connessione: ' + error.message }, 'error');
+            } finally {
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('loading').style.display = 'none';
+            }
+        });
+
+        function showResult(result, type) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = `result ${type}`;
+            
+            if (type === 'success') {
+                resultDiv.innerHTML = `
+                    <h3>✅ Knowledge Base Generata con Successo!</h3>
+                    <p><strong>Workflow ID:</strong> ${result.workflow_id}</p>
+                    <p><strong>File generati:</strong></p>
+                    <div class="file-list">
+                        ${result.files.map(file => `
+                            <div class="file-item">
+                                <span>📄 ${file}</span>
+                                <div class="file-actions">
+                                    <button class="preview-btn" onclick="previewFile('${result.workflow_id}', '${file}')">
+                                        👁️ Anteprima
+                                    </button>
+                                    <button class="download-btn" onclick="downloadFile('${result.workflow_id}', '${file}')">
+                                        📥 Scarica
+                                    </button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <br>
+                    <button class="btn" onclick="downloadAll('${result.workflow_id}')" style="width: auto; margin-right: 10px;">
+                        📦 Scarica Tutto (ZIP)
+                    </button>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <h3>❌ Errore</h3>
+                    <p>${result.message || result.detail || 'Errore sconosciuto'}</p>
+                `;
+            }
+            
+            resultDiv.style.display = 'block';
+        }
+
+        function previewFile(workflowId, filename) {
+            const client = document.getElementById('client').value;
+            const workflowMode = document.getElementById('selectedWorkflow').value;
+            const url = `${API_BASE}/preview/${client}/${workflowMode}/${workflowId}/${filename}`;
+
+            // Open preview in a new window with better formatting
+            const previewWindow = window.open('', '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const content = data.file_type === 'markdown' ?
+                        `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6;">
+                            <h1 style="color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px;">${filename}</h1>
+                            <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 14px;">
+                                <strong>Tipo:</strong> ${data.file_type.toUpperCase()} |
+                                <strong>Dimensione:</strong> ${(data.size_bytes / 1024).toFixed(1)} KB |
+                                <strong>Parole:</strong> ${data.word_count} |
+                                <strong>Righe:</strong> ${data.line_count}
+                            </div>
+                            <div style="white-space: pre-wrap; background: white; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">${data.content}</div>
+                        </div>` :
+                        `<div style="font-family: monospace; white-space: pre-wrap; padding: 20px;">${data.content}</div>`;
+
+                    previewWindow.document.write(`
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>Preview: ${filename}</title>
+                            <meta charset="utf-8">
+                        </head>
+                        <body>
+                            ${content}
+                        </body>
+                        </html>
+                    `);
+                    previewWindow.document.close();
+                })
+                .catch(error => {
+                    previewWindow.document.write(`<h1>Errore nel caricamento dell'anteprima</h1><p>${error.message}</p>`);
+                    previewWindow.document.close();
+                });
+        }
+
+        function downloadFile(workflowId, filename) {
+            const client = document.getElementById('client').value;
+            const workflowMode = document.getElementById('selectedWorkflow').value;
+            const url = `${API_BASE}/file/${client}/${workflowMode}/${workflowId}/${filename}`;
+            window.open(url, '_blank');
+        }
+
+        function downloadAll(workflowId) {
+            const client = document.getElementById('client').value;
+            const workflowMode = document.getElementById('selectedWorkflow').value;
+            const url = `${API_BASE}/download/${client}/${workflowMode}/${workflowId}`;
+            window.open(url, '_blank');
+        }
+
+        // Inizializza
+        loadWorkflowModes();
+    </script>
+</body>
+</html>
